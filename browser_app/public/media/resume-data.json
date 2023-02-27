@@ -1,0 +1,124 @@
+{
+	"name" : "Jarno Parviainen",
+	"title" : {
+		"fi" : "Matematiikan tuutori ja aloitteleva ohjelmistokehittäjä",
+		"en" : "Math tutor and beginning software developer"
+	},
+	"phone" : "",
+	"email" : "jarno.parviainen@gmail.com",
+	"website" : "jdemosite.link",
+
+	"profile" : {
+		"fi" : "",
+		"en" : ""
+	},
+
+	"skills" : [
+		{
+			"title" : {
+				"fi" : "Englanti",
+				"en" : "English"
+			},
+			"description" : {
+				"fi" : "C1 kirjallinen ja suullinen",
+				"en" : "C1 in written and oral"
+			}
+		},
+		{
+			"title" : "Linux",
+			"description" : "Debian, Arch"
+		},
+		{
+			"title" : "JavaScript",
+			"description" : "React, NodeJS"
+		},
+		{
+			"title" : "Python",
+			"description" : {
+				"fi" : "Olio-ohjelmointi",
+				"en" : "Object-oriented programming"
+			}
+		}
+	],
+
+	"experience" : [
+		{
+			"start" : "2011-01",
+			"end" : "",
+			"employer" : "Freelance work",
+			"jobTitle" : {
+				"fi" : "Yksityisopettaja",
+				"en" : "Private tutor"
+			},
+			"description" : {
+				"fi" : "Lukion pitkän matematiikan ja fysiikan oppimäärien mukainen opetus, joka mukautuu oppilaiden yksilöllisiin tarpeisiin. Alan standardien ja tutkimustiedon hyödyntäminen. Oppimateriaalien suunnittelu ja tuottaminen LaTeX-ladontatekniikalla. Valtaosalla arvosanat ovat nousseet 1-2 ylioppilasarvosanan verran.",
+				"en" : "Teach high scool and college level mathematics physics. Work with students considering their individual needs. Making use of literature and research papers. Create textbook material using LaTeX typesetting. Many of my students have improved by 1-2 whole grades."
+			}
+		},
+		{
+			"start" : "2021-06",
+			"end" : "2022-12",
+			"employer" : "AGCO Power Oy",
+			"jobTitle" : {
+				"fi" : "Moottoriasentaja",
+				"en" : "Engine assembler"
+			},
+			"description" : {
+				"fi" : "Useiden dieselmoottorien eri osien kokoaminen. Prosessi-insinöörin koulutusohjelman harjoittelu.",
+				"en" : "Assemble complex parts of wide variety of diesel engine models. Practice for studies in process engineering."
+			}
+		},
+		{
+			"start" : "2015-09",
+			"end" : "2021-12",
+			"employer" : "Teho-Opisto Oy",
+			"jobTitle" : {
+				"fi" : "Opettaja",
+				"en" : "Head lecturer"
+			},
+			"description" : {
+				"fi" : "Arkkitehtimatematiikan valmennuskurssin suunnittelu, toteutus ja ylläpito. Apuopettajan rekrytoinnissa avustaminen ja työn seuraaminen. Valtaosa opiskelijoistamme on läpäissyt kokeen.",
+				"en" : "Plan and maintain math cram course for architecture school applicants. Oversee assistant lecturer. Help vast majority of our students to pass the exam."
+			}
+		},
+		{
+			"start" : "2013/02",
+			"end" : "2019/06",
+			"employer" : "MAFY-valmennus",
+			"jobTitle" : {
+				"fi" : "Opettaja",
+				"en" : "Assistant lecturer"
+			},
+			"description" : {
+				"fi" : "Kurssin oppilaiden yksilöllinen opastaminen ja edistymisen seuraaminen.",
+				"en" : "Work with head teacher in lecturing, monitoring class, and assisting students in their individual problems."
+			}
+		}
+	],
+
+	"competencies" : [
+		{
+			"title" : "AWS certified cloud architect",
+			"valid" : "2025-12"
+		},
+		{
+			"title" : "AWS certified cloud practicioner",
+			"valid" : "2025-12"
+		}
+	],
+
+	"education" : [
+		{
+			"institute" : {
+				"fi" : "Tampereen ammattikorkeakoulu",
+				"en" : "Tampere university of applied sciences"
+			},
+			"major" : {
+				"fi" : "Biotuote- ja prosessitekniikka",
+				"en" : "Bioproduct and process engineering"
+			},
+			"start" : "2017-01",
+			"end" : ""
+		}
+	]
+}

@@ -1,0 +1,17 @@
+
+div.japp {
+	position : relative;
+	max-width : 1200px;
+	height : 100vh;
+	margin : 0 auto;
+}
+
+.japp-hide {
+	display : none !important;
+}
+
+@media print {
+	.japp-print-hide, .japp-print-hide * {
+		display : none !important;
+	}
+}

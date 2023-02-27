@@ -1,0 +1,13 @@
+
+.jtutor-img {
+	float : left;
+	height : 350px;
+	margin-right : 10px;
+	margin-bottom : 10px;
+}
+
+@media (width < 750px) {
+	.jtutor-img {
+		float : none;
+	}
+}

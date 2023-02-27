@@ -1,0 +1,25 @@
+.japp-dropdown {
+	position : relative;	
+}
+
+.japp-dropdown>ul {
+	/*transform : translateX(-50%) translateY(-50%);*/
+	position : absolute;
+	z-index : 11;
+
+	border-width : 1px;
+	border-radius : 5px;
+	border-style : solid;
+	border-color : lightgray;
+
+	padding-left: 2px;
+	padding-right: 2px;
+
+	background-color: #f8f9fa;
+	list-style : none;
+	text-align : left;
+}
+
+.japp-dropdown>ul>li {
+	
+}

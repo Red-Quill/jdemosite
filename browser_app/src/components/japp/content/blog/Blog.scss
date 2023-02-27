@@ -1,0 +1,61 @@
+.jblog {
+	display : flex;
+	flex-wrap : wrap;
+	width : 100%;
+}
+
+
+
+.jblog-post {
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: bisque;
+}
+
+.jblog-code {
+	border-color: black;
+	background-color :beige;
+	border : 1px,
+}
+
+
+
+.jblog-topics {
+
+}
+
+.jblog-posts {
+	min-width : 500px;
+}
+
+
+
+.jblog-topics-large {
+	width : 150px;
+	margin-left : 0;
+	margin-right : 0;
+}
+
+.jblog-posts-large {
+		
+}
+
+
+
+.jblog-topics-narrow {
+	
+}
+
+.jblog-posts-narrow {
+	
+}
+
+
+
+.jblog-topics-short {
+	width : 150px;
+}
+
+.jblog-posts-short {
+	
+}

@@ -1,0 +1,38 @@
+.jresume {
+	@import "./yui-reset-fonts-grids";
+	font-family: Georgia;
+	color: #444;
+	@import "./resume";
+	max-width: 1000px;
+	min-width: 600px;
+	margin: auto;
+}
+
+div.jresume-inner {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: calc(20% - 110px);
+	padding-right: calc(20% - 110px);
+	margin: 0;
+	background: #f5f5f5;
+	border: solid #666;
+	border-width: 8px 0 8px 0;
+}
+
+div.talents {
+	display : flex;
+	flex-wrap : wrap;
+}
+
+@media print {
+	div.jresume-inner {
+		background: none !important;
+		border: none !important;
+		border-width: 0 !important;
+	}
+}
+
+/*
+	height: 400px;
+	overflow-y : auto;
+*/

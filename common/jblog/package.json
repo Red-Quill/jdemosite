@@ -1,0 +1,15 @@
+{
+  "name": "jblog",
+  "version": "0.2.0",
+  "description": "",
+  "author": "jarno.parviainen@gmail.com",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "jjoi": "file:../jjoi",
+    "joi": "^17.7.0"
+  }
+}

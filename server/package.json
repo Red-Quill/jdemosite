@@ -1,0 +1,48 @@
+{
+  "name": "jdemo-backend",
+  "version": "1.0.0",
+  "description": "Backend for personal demo site",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "devstart": "nodemon index.js",
+    "test": "jest --verbose --detectOpenHandles",
+    "testing": "jest --watchAll"
+  },
+  "engines": {
+    "node": "18.13.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "tmp/*",
+      "build/*"
+    ]
+  },
+  "author": "Jarno Parviainen",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-ssm": "^3.254.0",
+    "@aws-sdk/credential-providers": "^3.254.0",
+    "bcrypt": "^5.1.0",
+    "compression": "^1.7.4",
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "jblog": "file:../common/jblog",
+    "jjoi": "file:../common/jjoi",
+    "joi": "^17.7.0",
+    "jQuery": "^1.7.4",
+    "jsonwebtoken": "^9.0.0",
+    "jutils": "file:../common/jutils",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.8.3",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "mock-mongoose": "^8.0.1-a",
+    "supertest": "^6.3.3"
+  },
+  "type" : "module"
+}

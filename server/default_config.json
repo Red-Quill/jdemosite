@@ -1,0 +1,22 @@
+{
+	"server" : {
+		"httpPort" : 3002
+	},
+	"database" : {
+		"baseURL" : "localhost",
+		"name" : "jdemo"
+	},
+	"blog" : {
+		"postFilesPath" : "testfiles"
+	},
+	"courses" : {
+		"courseFilesPath" : "testfiles"
+	},
+	"sessions" : {
+		"jWTSigningKey" : "ace15665ff47861bbff46e443d453f0aa0e1e72d546803338ba80a2a8642df9d",
+		"sessionStorePath" : "tmp/sessions"
+	},
+	"logger" : {
+		"logFilesPath" : "tmp/log"
+	}
+}

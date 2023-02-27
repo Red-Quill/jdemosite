@@ -1,0 +1,6 @@
+{
+	"database" : {
+		"baseURL" : "192.168.122.29",
+		"name" : "jdemo"
+	}
+}
