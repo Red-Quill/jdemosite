@@ -20,12 +20,9 @@ const Resume = () => {
 		else setRData(response.data);
 	}
 
-	useEffect( () => {
-		fetchRData();
-	},[]);
+	useEffect(() => {fetchRData()},[]);
 
-	if(_.isEmpty(rData)) return null;
-	return (
+	return _.isEmpty(rData) ? null : (
 		<div className="jresume">
 			<div className="jresume-inner">
 			

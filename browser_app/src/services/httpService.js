@@ -1,11 +1,10 @@
 import axios from "axios";
-import { errorNotificationService } from "./notificationService";
 
 
 
 class HttpService {
 	#baseURL
-	#ax;
+	#axios;
 	#errorNotificationService;
 
 	constructor({url,port,path}) {
@@ -14,12 +13,12 @@ class HttpService {
 
 	init = (errorNotificationService) => {
 		this.#errorNotificationService = errorNotificationService;
-		this.#ax = axios.create({ baseURL:this.#baseURL });
+		this.#axios = axios.create({ baseURL:this.#baseURL });
 	};
 
 	get = async(path,{ headers,responseType,returnError,noteError }={}) => {
 		try {
-			return await this.#ax.get(path,{ headers,responseType });
+			return await this.#axios.get(path,{ headers,responseType });
 		} catch(error) {
 			return this.#handleAxiosError(error,returnError,noteError);
 		}
@@ -27,7 +26,7 @@ class HttpService {
 
 	post = async(path,payload,{ headers,responseType,returnError,noteError }={}) => {
 		try {
-			return await this.#ax.post(path,payload,{ headers,responseType });
+			return await this.#axios.post(path,payload,{ headers,responseType });
 		} catch(error) {
 			return this.#handleAxiosError(error,returnError,noteError);
 		}
@@ -35,7 +34,7 @@ class HttpService {
 
 	put = async(path,payload,{ headers,responseType,returnError,noteError }={}) => {
 		try {
-			return await this.#ax.put(path,payload,{ headers,responseType });
+			return await this.#axios.put(path,payload,{ headers,responseType });
 		} catch(error) {
 			return this.#handleAxiosError(error,returnError,noteError);
 		}
@@ -56,12 +55,4 @@ class HttpService {
 
 
 
-const config = process.env.NODE_ENV === "production" ? {} : { url:"http://localhost",port:"3002" };
-const httpService = new HttpService(config);
-httpService.init(errorNotificationService);
-
-export { httpService };
-
-/*
-
-*/
+export default HttpService;

@@ -7,10 +7,10 @@
 		"name" : "jdemo"
 	},
 	"blog" : {
-		"postFilesPath" : "testfiles"
+		"postFilesPath" : "tmp/posts"
 	},
 	"courses" : {
-		"courseFilesPath" : "testfiles"
+		"courseFilesPath" : "tmp/courses"
 	},
 	"sessions" : {
 		"jWTSigningKey" : "ace15665ff47861bbff46e443d453f0aa0e1e72d546803338ba80a2a8642df9d",

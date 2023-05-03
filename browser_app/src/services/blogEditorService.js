@@ -1,5 +1,4 @@
 import { BlogPost } from "jblog";
-import blogService from "./blogService";
 
 
 
@@ -159,7 +158,4 @@ class BlogEditorSession {
 
 
 
-const blogEditorService = new BlogEditorService();
-blogEditorService.init(blogService);
-
-export default blogEditorService;
+export default BlogEditorService;

@@ -1,7 +1,5 @@
-const JJoi = require("joi");
-const joiObjectId = require("joi-objectid");
-
-
+import JJoi from "joi";
+import joiObjectId from "joi-objectid";
 
 //const JJoi = {
 //	...Joi,
@@ -11,5 +9,4 @@ const joiObjectId = require("joi-objectid");
 JJoi.objectId = joiObjectId(JJoi);
 JJoi.validate = (value,schema,options) => schema.validate(value,options);
 
-
-module.exports = JJoi;
+export default JJoi;

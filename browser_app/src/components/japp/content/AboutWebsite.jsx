@@ -1,207 +1,69 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 
 
 const AboutWebsite = () => {
-	return (
-		<React.Fragment>
-			<h1>About website</h1>
-			<p>Available only in English at the moment</p>
-			<p>Check out the course section. Find PDF that I have created for my math students as a part of my tutoring work.</p>
-			<p>This is just a quick description of how this website is implemented. It has introduction pages and demos of two projects – a blog and a course platform – that I'm working on when I have free time. Codebase available in <a href="https://github.com/Red-Quill/jdemosite.link" target="_blank">GitHub</a>.</p>
-			<ul>
-				<li>
-					Application
-					<ul>
-						<li>
-							written in JavaScript
-							<ul>
-								<li>frontend in React</li>
-								<li>backend in Node.js</li>
-							</ul>
-						</li>
-						<li>public version uses https only (redirect http to https)</li>
-						<li>distributed via CloudFront</li>
-						<li>passwords are stored using bcrypt (will implement SRP in the future)</li>
-					</ul>
-				</li>
-				<li>
-					Domain
-					<ul>
-						<li>domain name registered with Route 53</li>
-						<li>DNSSEC enabled</li>
-					</ul>
-				</li>
-				<li>
-					CloudFront distribution - tls only (redirect http to https)
-				</li>
-				<li>
-					AWS & VPC configuration for development and demo site
-					<ul>
-						<li>multi-account environment using AWS Organizations</li>
-						<li>ipv4 range 172.16.0.0/12 used for development and demo implementations</li>
-						<li>ipv4 range 10.0.0.0/8 reserved for production use</li>
-						<li>ipv4 range 192.168.0.0/16 reserved for home & office use</li>
-						<li>use ipv6 whenever possible</li>
-						<li>
-							Separate private and public subnets across at least two availability zones
-							<ul>
-								<li>MongoDB installed in EC2 in private subnet (could also use MongoDB Atlas)</li>
-								<li>API EC2 server in public subnet (could also use Docker/AWS Fargate)</li>
-								<li>EFS for storing session data so that it can be restored after server malfunction/reboot</li>
-								<li>
-									bastion host for maintenance
-									<ul>
-										<li>forward ssh from higher ports to backend instances</li>
-										<li>
-											forward MongoDB connection from higher port to database for maintenance
-											<ul>
-												<li>use password protection and tls (self signed certificate authority for added security)</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>S3 buckets for delivering the application frontend and media files</li>
-					</ul>
-				</li>
-				<li>
-					Todo list
-					<ul>
-						<li>use vpn to integrate home office with VPC</li>
-						<li>automate with CloudFormation</li>
-					</ul>
-				</li>
-			</ul>
-		</React.Fragment>
-	);
+	const { i18n:{ language } } = useTranslation();
+
+	return aboutWebsiteLangs[language];
 };
 
-const AboutWebsite_fi = () => {
-	return (
-		<React.Fragment>
-			<h1>Tietoa sivustosta</h1>
-			<p>Katso myös kurssit-osio. Siellä on pdf-muotoinen opetusmateriaali, jonka olen tehnyt oppilailleni.</p>
-			<p>Tässä on pikainen kuvaus tämän sivuston toteutuksesta. Sivustolla on esittelysivuja ja kaksi demoa – blogi ja kurssit – joita työstän, kun minulla on aikaa. Lähdekoodia voi katsoa <a href="#">GitHubissa</a>.</p>
-			<ul>
-				<li>
-					Sovellus
-					<ul>
-						<li>
-							toteutettu JavaScriptillä
-							<ul>
-								<li>frontend Reactilla</li>
-								<li>backend Node.js:llä</li>
-							</ul>
-						</li>
-						<li>julkaistu versio käyttää ainoastaan https-yhteyttä (http uudelleenohjattu https:ään)</li>
-						<li>jakelu CloudFrontin kautta</li>
-						<li>salasanat talletetaan bcrypt-kirjaston avulla (SRP-implementaatio tulevaisuudessa)</li>
-					</ul>
-				</li>
-				<li>
-					Domain
-					<ul>
-						<li>domain-nimi rekisteröity Route 53:een</li>
-						<li>DNSSEC käytössä</li>
-					</ul>
-				</li>
-				<li>
-					AWS & VPC konfiguraatio kehitystyötä ja demosivustoa varten
-					<ul>
-						<li>useampi tili liitettynä AWS Organisaatioihin</li>
-						<li>ipv4 avaruus 172.16.0.0/12 (class B) käytössä kehitystyöhön ja demosivuston toteutukseen</li>
-						<li>ipv4 avaruus 10.0.0.0/8 (class A) varattu tuotantokäyttöön</li>
-						<li>ipv4 avaruus 192.168.0.0/16 (class C) varattu koti- ja toimistokäyttöön</li>
-						<li>ipv6 käytössä aina kun mahdollista</li>
-						<li>
-							Erilliset suljetut ja avoimet aliverkot vähintään kahdella "availability zone":lla
-							<ul>
-								<li>MongoDB asennettuna EC2:een suljetussa aliverkossa (MongoDB Atlas voisi olla vaihtoehto)</li>
-								<li>API EC2 palvelin in avoimessa aliverkossa (Docker/AWS Fargate toimisi myös)</li>
-								<li>Käyttäjäsessioita varten EFS, jolloin ne voidaan helposti palauttaa palvelimen virhetilan tai uudelleenkäynnistyksen jälkeen</li>
-								<li>
-									bastion host ylläpitoa varten
-									<ul>
-										<li>forward ssh from higher ports to backend instances</li>
-										<li>
-											forward MongoDB connection from higher port to database for maintenance
-											<ul>
-												<li>use password protection and tls (self signed certificate authority for added security)</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>Selainsovellus ja mediatiedostot jaetaan S3:sta</li>
-					</ul>
-				</li>
-				<li>
-					Tehtävää
-					<ul>
-						<li>kotitoimiston ja VPC:n yhdistäminen vpn:llä</li>
-						<li>automatisointi CloudFormationilla</li>
-					</ul>
-				</li>
-			</ul>
-		</React.Fragment>
-	);
+const AboutWebsiteEn = () => (
+	<React.Fragment>
+		<h1>About Website</h1>
+		<p>
+			Welcome to my developer portfolio. Frontend (this site) is created with react. It is made responsive and multilingual. My main focus as a developer, however, is in the backend so the site isn't as fancy and glossy as I would like it to be. Backend is created with NodeJS using MongoDB as database and built on top of AWS using CloudFront, VPC, EC2, EFS, Application Load Balancer, S3, Docker, Route53, CodeCommit and CodeArtifact.
+		</p>
+		<div>
+			<h2>Projects</h2>
+			<div>
+				<h3>Blog</h3>
+				<p>A simple blog page to publish my personal thoughts. Not much content at the moment but that will change. I have a lot to say. It has an online editor for site admins. Posts can be published in multiple languages and the UI prioritizes version of viewers language if it is available otherwise it shows the post in English.</p>
+			</div>
+			<div>
+				<h3>Courses</h3>
+				<p>Work in progress project for publishing course content. Currently it has one sample course that has a downloadable 300 page pdf file that I have made for Finnish high school math student. It has 250 exercises with solutions and accompanying theory sections. It is created using a modular library of LaTeX files hosted in private git repository. It cand be used to make other publications, and I have used it to publish materials for my previous employers' courses.</p>
+			</div>
+			<div>
+				<h3>tScript</h3>
+				<p>A scripting language similar to Donald Knuth's TeX language but with modern data structures and upgraded syntax. It can be used for creating interface similar to LaTeX or ConTeXt and typesetting engine similar to TeX. I'm going to use it for creating HTML+CSS documents from LaTeX-like markup. tScript is created with Python, but it is supposed to be a standard that can be implemented in other programming languages.</p>
+				<p>In the demo page you can write your own code or try and edit some samples. You can run code on server side and interact with it via a "terminal simulator" that I created for this purpose. It uses websocket to connect to the backend.</p>
+			</div>
+		</div>
+	</React.Fragment>
+);
+
+const AboutWebsiteFi = () => (
+	<React.Fragment>
+		<h1>Portfolioni</h1>
+		<p>
+			Tervetuloa. Tässä tietoa tekemästäni sivustosta. Frontend on tehty reactilla. Tärkeimpinä prioriteetteina ovat olleet responsiivisuus ja monikielisyys. Päätavoitteeni ohjelmistokehittäjänä on kuintekin backend, joten sivun ulkoasu ei ehkä ole niin kiiltävä kuin haluaisin sen olevan. Backend-puoli on tehty Nodella, tietokantana on MondoDB ja kokonaisuus on rakennettu AWS:n päälle käyttäen teknologioita CloudFront, VPC, EC2, EFS, Application Load Balancer, S3, Docker, Route53, CodeCommit ja CodeArtifact.
+		</p>
+		<div>
+			<h2>Projektit</h2>
+			<div>
+				<h3>Blogi</h3>
+				<p>Yksinkertainen blogisivu omien ajatusteni jakamiseen. Sisältöä ei vielä juurikaan ole, mutta se muuttuu; minulla on paljon sanottavaa. Siinä on online-editori admin-käyttäjille. Kirjoitukset voi julkaista useammalla kielellä ja UI näyttää käyttäjille oman kielen mukaisen version tai jos sitä ei ole saatavilla, englanninkielisen.</p>
+			</div>
+			<div>
+				<h3>Kurssit</h3>
+				<p>Työn alla oleva projekti kurssimaterialien ja muun sisällön julkaisemiseen. Tällä hetkellä siinä on yksi ladattava 300-sivuinen pdf-tiedosto, jonka olen tehnyt lukiomatematiikasta. Siinä on 250 harjoitusta ja niihin liittyvät teoriat. Olen rakentanut LaTeX järjestelmällä modulaarisen kirjaston tehtäviä ja teorioita, jotka ovat yksityisessä git-repositoriossa. Siitä pystyy rakentamaan julkaisuja ja olen sitä käyttänyt aiempien työnantajien kurssien materiaalien tuottamiseen.</p>
+			</div>
+			<div>
+				<h3>tScript</h3>
+				<p>Donald Knuthin TeX-kielen kaltainen skriptikieli, jossa on kuitenkin modernit tietorakenteet ja parannettu syntaksi. Sitä voi käyttää mm. rakentamaan LaTeX- ConTeXt-järjestelmiä vastaavia rajapintoja ja vaikka kokonainen ladontajärjestelmä. Aion käyttää sitä HTML-dokumenttien luomiseen LaTeX-tyylisen markupin avulla. tScript on toteutetu Pythonilla, mutta sen on tarkoitus olla standardi, jonka voi implementoida myös muille ohjelmointikielille.</p>
+				<p>Demosivulla voit kokeilla tScript-koodia ja kirjoittaa sitä joko itse tai kokeilla muutamia näytekoodeja. Koodi ajetaan palvelimella ja sen kanssa voi vuorovaikuttaa "terminaalisimulaattorin" kautta. Yhteys palvelimeen koodin suorituksen aikana hoituu websocketin avulla.</p>
+			</div>
+		</div>
+	</React.Fragment>
+);
+
+const aboutWebsiteLangs = {
+	"en" : <AboutWebsiteEn />,
+	"fi" : <AboutWebsiteFi />,
 };
 
 
 
 export default AboutWebsite;
-
-
-
-
-/*
-What has been done so far --
-
-Application
- - Written in JavaScript
-   - Frontend using React
-   - Backend using NodeJS
- - Public version uses https only (redirect http to https)
- - passwords hashed on server side using ...
-   - could use ... for increased security
-
-Domain
- - domain name registered via route 53
- - dnssec enabled
-
-CloudFront distribution
- - tls only (redirect http to https)
-
-VPC for demo and development use
- - Ip range ... (use ... for production and 192.168 for home, office etc)
- - S3 buckets for
-   - application frontend
-   - media
- - Private subnet
-   - MongoDB installed on EC2
-     - could use MongoDB Atlas
- - Public subnet
-   - API installed on EC2
-     - Could use Docker/Fargate
-   - EFS for storing
-     - blog posts
-	   - could also use S3
-	 - course data (PDFs for now)
-	 - session data
-	   - can easily be restored if server application crashes
-	   - could be used for multiple concurrent server instances (eliminating the need for sticky sessions)
-   - bastion host
-     - Elastic IP
-     - redirect ssh to db and api instances via higher ports (implemented using iptables)
-	 - redirect mongoDB via higher port for maintenance purposes
-	   - use tls with self-signed certificate authority
-     - TODO: use vpn to integrate with home office network
-
-General TODO:
- - Automation so that parts of the system can be replicated and restored easily
-
-*/
-

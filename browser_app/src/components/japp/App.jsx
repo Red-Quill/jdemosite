@@ -1,7 +1,7 @@
 import React, { useState,useRef,useLayoutEffect, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import userService from '../../services/userService';
+import { userService } from '../../services/jdemosite';
 import { NavBarContext,AppSizeContext } from '../Contexts';
 import NavBar,{ NavBarLink,NavBarAction,NavBarCollapsible,NavBarDropdown } from "./navBar/NavBar";
 import Content from './content/Content';
@@ -12,18 +12,6 @@ import menuIcon from "../../static/menu.svg";
 
 
 
-const appGlobalState = {
-	dimensions : [0,0,null],
-	
-	setDimensions(dimensions) {
-		this.dimensions = dimensions;
-	},
-
-	getLayoutStyle() {
-		return this.dimensions[2]
-	},
-}
-
 const useContainerDimensions = (ref) => {
 	const [ dimensions,setDimensions ] = useState([0,0,"narrow"])
   
@@ -31,7 +19,6 @@ const useContainerDimensions = (ref) => {
 		const handleResize = () => {
 			const { clientWidth,clientHeight } = ref.current;
 			const newDimensions = [clientWidth,clientHeight,calculateLayoutStyle(clientWidth,clientHeight)];
-			appGlobalState.setDimensions(newDimensions);
 			setDimensions(newDimensions);
 		}
 		if (ref.current) handleResize();
@@ -52,8 +39,8 @@ const calculateLayoutStyle = (width,height) => {
 };
 
 const App = () => {
-	const me = useRef();
-	const [ width,height,layoutStyle ] = useContainerDimensions(me)
+	const me = useRef(null);
+	const [ width,height,layoutStyle ] = useContainerDimensions(me);
 	const [ navBarItems,setNavBarItems ] = useState([]);
 	const [ navBarCustomItems,setNavBarCustomItems ] = useState([]);
 	const { t,i18n:{ language,changeLanguage } } = useTranslation();
@@ -81,8 +68,9 @@ const App = () => {
 						itemList : [
 							{ _id:130,Type:NavBarLink,data:{ to:"/blog",text:t("Blog") } },
 							{ _id:140,Type:NavBarLink,data:{ to:"/courses",text:t("Courses") } },
-							{ _id:150,Type:NavBarAction,data:{ onClick:() => changeLanguage("fi"),symbol:{ src:finnishFlag,alt:"Suomeksi/Finnish"} } },
-							{ _id:160,Type:NavBarAction,data:{ onClick:() => changeLanguage("en"),symbol:{ src:englishFlag,alt:"English/Englanniksi"} } },
+							{ _id:150,Type:NavBarLink,data:{ to:"/tscript",text:t("tScript") } },
+							{ _id:160,Type:NavBarAction,data:{ onClick:() => changeLanguage("fi"),symbol:{ src:finnishFlag,alt:"Suomeksi/Finnish"} } },
+							{ _id:170,Type:NavBarAction,data:{ onClick:() => changeLanguage("en"),symbol:{ src:englishFlag,alt:"English/Englanniksi"} } },
 						],
 						symbol : { src:menuIcon,alt:"Menu"},
 					},
@@ -126,4 +114,16 @@ export default App;
 
 /**
 style={{position:"relative", maxWidth:1200,height:"100vh",margin:"0 auto"}}
+
+const appGlobalState = {
+	dimensions : [0,0,null],
+	
+	setDimensions(dimensions) {
+		this.dimensions = dimensions;
+	},
+
+	getLayoutStyle() {
+		return this.dimensions[2]
+	},
+}
  */

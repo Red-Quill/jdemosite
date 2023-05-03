@@ -1,8 +1,8 @@
-const JJoi = require("jjoi");
+import JJoi from "../jjoi/index.js";
 
 
 
-blogTopicObjectSchema = JJoi.object().required().keys({
+const blogTopicObjectSchema = JJoi.object().required().keys({
 	_id : JJoi.objectId().required(),
 	label : JJoi.string().required(),
 	names : JJoi.object().required().keys({
@@ -59,4 +59,4 @@ class BlogTopicThumbnail {
 
 
 
-module.exports = BlogTopic;
+export default BlogTopic;

@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from 'react';
-import { Routes,Route,Navigate } from 'react-router-dom';
+import React, { useState,useEffect, useRef } from 'react';
+import { Routes,Route,Navigate,BrowserRouter } from 'react-router-dom';
 import { toast,ToastContainer } from "react-toastify";
-import userService from '../services/userService';
-import { errorNotificationService } from '../services/notificationService';
+import { userService } from '../services/jdemosite';
+import { errorNotificationService } from '../services/jdemosite';
 import App from "./japp/App";
 import AboutWebsite from './japp/content/AboutWebsite';
 import AboutCreator from './japp/content/AboutCreator';
@@ -18,6 +18,7 @@ import Course from './japp/content/courses/Course';
 import Login from './japp/content/courses/Login';
 import Logout from './japp/content/courses/Logout';
 import Register from './japp/content/courses/Register';
+import Tscript from './japp/content/Tscript';
 import NotFound from './NotFound';
 import { UserContext } from './Contexts';
 
@@ -28,11 +29,11 @@ import "react-toastify/dist/ReactToastify.css"
 const Main = () => {
 	const [ user,setUser ] = useState(userService.currentUser);
 	const { login,logout,registerAndLogin } = userService;
-	const showError = (message) => toast.error(message);
-	userService.onUserChange(setUser);
-	errorNotificationService.registerListener(showError);
-
+	
 	useEffect( () => {
+		const showError = (message) => toast.error(message);
+		errorNotificationService.registerListener(showError);
+		userService.onUserChange(setUser);
 		return () => {
 			errorNotificationService.removeListener(showError);
 			userService.onUserChangeDeregister(setUser);
@@ -40,37 +41,40 @@ const Main = () => {
 	},[]);
 
 	return (
-		<UserContext.Provider value={{user,login,logout,registerAndLogin}}>
-			<ToastContainer autoClose={20000} position={toast.POSITION.BOTTOM_RIGHT} />
-			<Routes>
-				<Route path="/" element={<App />}>
+		<BrowserRouter>
+			<UserContext.Provider value={{user,login,logout,registerAndLogin}}>
+				<ToastContainer autoClose={20000} position={toast.POSITION.BOTTOM_RIGHT} />
+				<Routes>
+					<Route path="/" element={<App />}>
 
-					<Route index element={<AboutWebsite />}/>
-					<Route path="author" element={<AboutCreator />}/>
-					<Route path="resume" element={<Resume />}/>
-					<Route path="tutor" element={<AboutTutor />}/>
+						<Route index element={<AboutWebsite />}/>
+						<Route path="author" element={<AboutCreator />}/>
+						<Route path="resume" element={<Resume />}/>
+						<Route path="tutor" element={<AboutTutor />}/>
 
-					<Route path="blog" element={<Blog />}/>
-					<Route path="blog/:_id" element={<BlogPost />}/>
-					<Route path="blog/editor" element={<Editor />}/>
-					<Route path="blog/editor/:_id" element={<Editor />}/>
-					
+						<Route path="blog" element={<Blog />}/>
+						<Route path="blog/:_id" element={<BlogPost />}/>
+						<Route path="blog/editor" element={<Editor />}/>
+						<Route path="blog/editor/:_id" element={<Editor />}/>
 
-					<Route path="courses" element={<Courses />}>
-						<Route index element={<CourseCatalog />}/>
-						<Route path="mycourses" element={<MyCourses />}/>
-						<Route path="login" element={<Login />}/>
-						<Route path="logout" element={<Logout />}/>
-						<Route path="register" element={<Register />}/>
-						<Route path="course/:_id" element={<Course />}/>
+						<Route path="tscript" element={<Tscript />}/>
+
+						<Route path="courses" element={<Courses />}>
+							<Route index element={<CourseCatalog />}/>
+							<Route path="mycourses" element={<MyCourses />}/>
+							<Route path="login" element={<Login />}/>
+							<Route path="logout" element={<Logout />}/>
+							<Route path="register" element={<Register />}/>
+							<Route path="course/:_id" element={<Course />}/>
+						</Route>
+
+						<Route path="notfound" element={<NotFound />}/>
 					</Route>
-
-					<Route path="notfound" element={<NotFound />}/>
-				</Route>
-				<Route path="/resume/xx" element={<Resume />}/>
-				<Route path="/*" element={<Navigate to="/notfound" />}/>
-			</Routes>
-		</UserContext.Provider>
+					<Route path="/resume/xx" element={<Resume />}/>
+					<Route path="/*" element={<Navigate to="/notfound" />}/>
+				</Routes>
+			</UserContext.Provider>
+		</BrowserRouter>
 	);
 };
 

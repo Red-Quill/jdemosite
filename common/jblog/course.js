@@ -1,8 +1,8 @@
-const JJoi = require("jjoi");
+import JJoi from "../jjoi/index.js";
 
 
 
-courseObjectSchema = JJoi.object().required().keys({
+const courseObjectSchema = JJoi.object().required().keys({
 	_id : JJoi.objectId().required(),
 	iconFileName : JJoi.string().required(),
 	content : JJoi.object().required().keys({
@@ -67,4 +67,4 @@ class CourseThumbnail {
 
 
 
-module.exports = Course;
+export default Course;

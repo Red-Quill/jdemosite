@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import _ from "lodash";
-import courseService from '../../../../services/courseService';
+import { courseService } from '../../../../services/jdemosite';
 
 
 

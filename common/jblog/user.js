@@ -1,4 +1,4 @@
-const JJoi = require("jjoi");
+import JJoi from "../jjoi/index.js";
 
 
 
@@ -58,4 +58,5 @@ const noUser = new User({_id:"",name:"",email:""});
 
 
 
-module.exports = User;
+export default User;
+export { noUser };

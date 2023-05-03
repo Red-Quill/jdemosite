@@ -16,8 +16,3 @@ const DropdownButton = ({ onClick,symbol,text,arrowDown }) => (
 
 
 export default DropdownButton;
-
-
-/*
-
-*/

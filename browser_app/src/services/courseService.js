@@ -1,7 +1,4 @@
 import _ from "lodash";
-import { httpService } from "./httpService";
-import userService from "./userService";
-import { localizationService } from "./i18n";
 import { Course } from "jblog";
 
 
@@ -104,8 +101,6 @@ class CourseService {
 	isMine = (thumbnail) => Object.keys(this.#userCourses).includes(thumbnail._id);
 };
 
-// --> TMP
-const courseService = new CourseService();
-courseService.init(httpService,localizationService,userService);
-// <-- TMP
-export default courseService;
+
+
+export default CourseService;

@@ -11,5 +11,6 @@
   "dependencies": {
     "jjoi": "file:../jjoi",
     "joi": "^17.7.0"
-  }
+  },
+  "type" : "module"
 }

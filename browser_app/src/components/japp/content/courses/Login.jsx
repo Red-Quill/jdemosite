@@ -10,9 +10,7 @@ const Login = () => {
 	const { user } = useContext(UserContext);
 	const navigate = useNavigate();
 
-	useEffect( () => {
-		if(user._id) navigate("/courses",{replace:true});
-	},[user]);
+	useEffect(() => {user._id && navigate("/courses",{replace:true})},[user]);
 
 	return user._id ? <p>User is already logged in :D</p> : <LoginForm />;
 };

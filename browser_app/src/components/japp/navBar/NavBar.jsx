@@ -26,7 +26,3 @@ const NavBar = ({ itemLists }) => {
 
 export default NavBar;
 export { NavBarAction,NavBarCollapsible,NavBarLink,NavBarDropdown };
-
-/*
-
-*/

@@ -10,9 +10,7 @@ const Register = () => {
 	const { user } = useContext(UserContext);
 	const navigate = useNavigate();
 
-	useEffect( () => {
-		if(user._id) navigate("/courses",{replace:true})
-	},[user]);
+	useEffect(() => {user._id && navigate("/courses",{replace:true})},[user]);
 
 	return user._id ? <p>User is already logged in :D</p> : <RegisterForm />;
 };
@@ -41,8 +39,7 @@ const RegisterForm = () => {
 			await registerAndLogin({ email,name,password });
 		} catch(error) {
 			console.log(error);
-			if(error.response)
-				setRegisterError(t(error.response.data));
+			if(error.response) setRegisterError(t(error.response.data));
 		}
 		// Parent component will redirect to /courses automatically when user logs in succesfully
 	};

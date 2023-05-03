@@ -13,6 +13,7 @@ class NotificationService {
 	};
 
 	registerListener = (listener) => {
+		if(listener._notificationServiceListenerId) return;
 		const _id = ++lastId;
 		listener._notificationServiceListenerId = _id;
 		this.#listeners.push({ _id,listener });
@@ -31,6 +32,4 @@ class NotificationService {
 
 
 
-const errorNotificationService = new NotificationService();
 export default NotificationService;
-export { errorNotificationService };

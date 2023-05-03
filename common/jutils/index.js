@@ -1,3 +1,4 @@
-const wait = require("./wait");
+import interrupt from "./interrupt.js";
+import wait from "./wait.js";
 
-module.exports = { wait };
+export { interrupt,wait };

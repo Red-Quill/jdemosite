@@ -11,8 +11,6 @@ describe("/api/user/current",() => {
 		await jServer.init();
 	});
 	
-
-
 	it("stop jServer", async() =>{
 		await jServer.stop();
 	});

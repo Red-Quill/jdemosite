@@ -13,7 +13,7 @@ const Logout = () => {
 		navigate("/courses",{replace:true});
 	};
 
-	useEffect( () => { handleLogout() },[]);
+	useEffect(() => {handleLogout()},[]);
 
 	return <p>Logging out</p>;
 };

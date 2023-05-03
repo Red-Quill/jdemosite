@@ -1,9 +1,8 @@
 import React, { useEffect,useState,useContext } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { toast } from "react-toastify";
 import { UserContext } from '../../../Contexts';
-import blogService from "../../../../services/blogService";
+import { blogService } from "../../../../services/jdemosite";
 
 
 
@@ -23,14 +22,12 @@ const BlogPost = () => {
 		}
 	};
 
-	useEffect( () => {
-		fetchContent();
-	},[language]);
+	useEffect(() => {fetchContent()},[language]);
 
 	return (
 		<div className='jblog-post'>
 			<BackLink />
-			{user._id && <NavLink to={`/blog/editor/${_id}`}>Edit</NavLink>}
+			{user.admin && <NavLink to={`/blog/editor/${_id}`}> Edit</NavLink>}
 			<h1>{content.title}</h1>
 			<p>{content.date}</p>
 			<div dangerouslySetInnerHTML={{__html:content.postHtmlString}} />

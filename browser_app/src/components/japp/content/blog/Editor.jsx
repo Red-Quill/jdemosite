@@ -6,7 +6,7 @@ import { UserContext } from '../../../Contexts';
 import Input from "../../../common/Input";
 import CheckBox from "../../../common/CheckBox";
 import ListGroup from '../../../common/ListGroup';
-import blogEditorService from '../../../../services/blogEditorService';
+import { blogEditorService } from '../../../../services/jdemosite';
 
 
 

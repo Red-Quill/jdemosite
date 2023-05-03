@@ -15,10 +15,3 @@ const NavBarLink = ({ to,symbol,text }) => (
 
 
 export default NavBarLink;
-
-
-
-
-
-/*
- */

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { useTranslation } from 'react-i18next';
 import { UserContext } from '../../../Contexts';
 import Table from "../../../common/Table";
-import courseService from "../../../../services/courseService";
+import { courseService } from "../../../../services/jdemosite";
 import OpenOrDownloadButton from './OpenOrDownloadButton';
 
 
@@ -29,11 +29,7 @@ const MyCourses = () => {
 		setCourses(courseItems);
 	};
 
-	useEffect( () => {
-		if(user._id) fetchCourses();
-		else navigate("/",{replace:true});
-	},[user,language]);
-
+	useEffect(() => {user._id ? fetchCourses() : navigate("/",{replace:true})},[user,language]);
 
 	return (
 		<div>

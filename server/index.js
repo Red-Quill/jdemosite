@@ -7,6 +7,6 @@ const start = async() => {
 	const jServerConfig = await config();
 	const jServer = new JServer();
 	await jServer.init(jServerConfig);
-}
+};
 
 start();

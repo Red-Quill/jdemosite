@@ -1,9 +1,7 @@
-import { User } from "jblog";
-import { httpService } from "./httpService";
+import { User,noUser } from "jblog";
 
 
 
-// TODO: consider using (npm) eventemitter3 library
 class UserService {
 	#httpService;
 	#currentUser;
@@ -13,7 +11,7 @@ class UserService {
 
 	constructor() {
 		this.#sessionToken = "";
-		this.#currentUser = User.noUser;
+		this.#currentUser = noUser;
 		this.#onUserChangeCallbacks = {};
 		this.#onUserChangeCallbacksId = 1;
 	};
@@ -70,7 +68,7 @@ class UserService {
 	// used when logout is called
 	#resetUser = () => {
 		this.#sessionToken = "";
-		this.#currentUser = User.noUser;
+		this.#currentUser = noUser;
 		this.#resetUserLocalStorage();
 		this.#emitUserChange();
 	};
@@ -92,7 +90,7 @@ class UserService {
 				this.#emitUserChange();
 			}
 		}
-	}
+	};
 
 	// --> whenever user changes
 	#emitUserChange = () => {
@@ -125,13 +123,11 @@ class UserService {
 	#retrieveUserFromLocalStorage = () => {
 		this.#sessionToken = window.localStorage.getItem("userSessionToken");
 		const _user = window.localStorage.getItem("user");
-		this.#currentUser = _user ? new User(JSON.parse(_user)) : User.noUser;
-	}
+		this.#currentUser = _user ? new User(JSON.parse(_user)) : noUser;
+	};
 	// <--
 }
 
 
 
-const userService = new UserService();
-userService.init(httpService);
-export default userService;
+export default UserService;

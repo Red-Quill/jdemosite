@@ -1,9 +1,5 @@
 import _ from "lodash";
 import { BlogTopic,BlogPost } from "jblog";
-import { httpService } from "./httpService";
-import { localizationService } from "./i18n";
-import { errorNotificationService } from "./notificationService";
-import userService from "./userService";
 
 
 
@@ -188,7 +184,4 @@ class BlogService {
 
 
 
-const blogService = new BlogService();
-blogService.init(localizationService,httpService,userService);
-
-export default blogService;
+export default BlogService;

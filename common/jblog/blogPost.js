@@ -1,4 +1,4 @@
-const JJoi = require("jjoi");
+import JJoi from "../jjoi/index.js";
 
 
 
@@ -120,4 +120,4 @@ class BlogPostThumbnail {
 
 
 
-module.exports = BlogPost;
+export default BlogPost;

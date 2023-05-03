@@ -1,12 +1,11 @@
 import React, { useEffect,useState,useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
-import { toast } from "react-toastify";
 import { UserContext } from '../../../Contexts';
 import Table from "../../../common/Table";
 import BuyOrAddButton from './BuyOrAddButton';
 import OpenOrDownloadButton from './OpenOrDownloadButton';
-import courseService from "../../../../services/courseService";
+import { courseService } from "../../../../services/jdemosite";
 
 
 

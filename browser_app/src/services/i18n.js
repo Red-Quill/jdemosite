@@ -120,5 +120,5 @@ const localizationService = new LocalizationService()
 
 
 
-export default i18n;
-export { LocalizationService,localizationService };
+export default LocalizationService;
+export { LocalizationService,localizationService,i18n };

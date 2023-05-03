@@ -1,8 +1,7 @@
 import React,{ useState,useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { toast } from "react-toastify";
 import { AppSizeContext } from '../../../Contexts';
-import blogService from "../../../../services/blogService";
+import { blogService } from "../../../../services/jdemosite";
 import BlogTopic from './BlogTopic';
 
 
@@ -13,8 +12,7 @@ const BlogTopics = () => {
 	const { t,i18n:{ language } } = useTranslation();
 
 	const fetchTopics = async() => {
-		const { error,topicThumbnails } = await blogService.getTopicThumbnails();
-		if(error) return toast.error(error);
+		const { topicThumbnails } = await blogService.getTopicThumbnails();
 		setTopics(topicThumbnails);
 	}
 

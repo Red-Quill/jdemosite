@@ -1,7 +1,6 @@
-const BlogTopic = require("./blogTopic");
-const BlogPost = require("./blogPost");
-const User = require("./user");
-const Course = require("./course");
-const noUser = User.noUser;
+import BlogTopic from "./blogTopic.js";
+import BlogPost from "./blogPost.js";
+import User,{ noUser } from "./user.js";
+import Course from "./course.js";
 
-module.exports = { BlogTopic,BlogPost,User,noUser,Course };
+export { BlogTopic,BlogPost,User,noUser,Course };
